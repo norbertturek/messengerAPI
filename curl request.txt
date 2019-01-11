@@ -1,0 +1,76 @@
+
+curl -X POST -H "Content-Type: application/json" -d '{
+    "greeting": [
+       {
+            "locale":"default",
+            "text":"CZEŚĆ. SZUKASZ CZEGOŚ?"
+        },
+    ]
+}' "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=EAAGC7uMkDHUBAIfTy5cbhD81MSehmEUiSazlOdCYbyLd30CZBc2ohyc1ycrnDTsCf9oABRdQvawEpPQwCevAjTSqqrFuEe1b1a1oZBM8syShbwTV0AZAaZBkRfOG0xmcXhFzsdKMsbtXSfJrQV7ph9HMg6bMwNh5wZA3cQwthZBqORftU7MZCA9nUZCQU7rF1XYZD"
+
+
+curl -X POST -H "Content-Type: application/json" -d '{
+    "get_started": {"text": "hello, world!"}
+  }' "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=EAAGC7uMkDHUBAIfTy5cbhD81MSehmEUiSazlOdCYbyLd30CZBc2ohyc1ycrnDTsCf9oABRdQvawEpPQwCevAjTSqqrFuEe1b1a1oZBM8syShbwTV0AZAaZBkRfOG0xmcXhFzsdKMsbtXSfJrQV7ph9HMg6bMwNh5wZA3cQwthZBqORftU7MZCA9nUZCQU7rF1XYZD"
+
+
+
+curl -X POST -H "Content-Type: application/json" -d '{
+  "get_started": {"payload": "<postback_payload>"}
+}' "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=EAAGC7uMkDHUBAIfTy5cbhD81MSehmEUiSazlOdCYbyLd30CZBc2ohyc1ycrnDTsCf9oABRdQvawEpPQwCevAjTSqqrFuEe1b1a1oZBM8syShbwTV0AZAaZBkRfOG0xmcXhFzsdKMsbtXSfJrQV7ph9HMg6bMwNh5wZA3cQwthZBqORftU7MZCA9nUZCQU7rF1XYZD"
+
+
+
+
+
+Menu rozwijane
+
+curl -X POST -H "Content-Type: application/json" -d '{
+"persistent_menu":[
+    {
+    "locale":"default",
+    "composer_input_disabled":true,
+    "call_to_actions":[
+        {
+        "title":"Informacje",
+        "type":"nested",
+        "call_to_actions":[
+            {
+            "title":"Pomoc",
+            "type":"postback",
+            "payload":"HELP_PAYLOAD"
+            },
+            {
+            "title":"Kontakt",
+            "type":"postback",
+            "payload":"CONTACT_INFO_PAYLOAD"
+            }
+        ]
+        },
+        {
+        "type":"web_url",
+        "title":"Odwiedź nas!",
+        "url":"https://www.messenger.com/",
+        "webview_height_ratio":"full"
+        }
+    ]
+    },
+    {
+    "locale":"pl_PL",
+    "composer_input_disabled":false
+    }
+]
+}' "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=EAAGC7uMkDHUBAIfTy5cbhD81MSehmEUiSazlOdCYbyLd30CZBc2ohyc1ycrnDTsCf9oABRdQvawEpPQwCevAjTSqqrFuEe1b1a1oZBM8syShbwTV0AZAaZBkRfOG0xmcXhFzsdKMsbtXSfJrQV7ph9HMg6bMwNh5wZA3cQwthZBqORftU7MZCA9nUZCQU7rF1XYZD"
+
+
+
+// Usunięcie menu statycznego
+curl -X DELETE -H "Content-Type: application/json" -d '{
+"fields":[
+    "persistent_menu"
+]
+}' "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=EAAGC7uMkDHUBAIfTy5cbhD81MSehmEUiSazlOdCYbyLd30CZBc2ohyc1ycrnDTsCf9oABRdQvawEpPQwCevAjTSqqrFuEe1b1a1oZBM8syShbwTV0AZAaZBkRfOG0xmcXhFzsdKMsbtXSfJrQV7ph9HMg6bMwNh5wZA3cQwthZBqORftU7MZCA9nUZCQU7rF1XYZD"
+
+
+https://nodejs.org/api/child_process.html
+https://nodejs.org/api/child_process.html#child_process_child_process_exec_command_options_callback
